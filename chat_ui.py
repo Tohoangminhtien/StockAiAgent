@@ -3,12 +3,27 @@ import os
 from dotenv import load_dotenv
 from agent import ChatAgent
 
+# Load environment variables
 load_dotenv('private/.env')
 OPENAI_API_KEY = os.getenv("OPEN_AI_KEY")
 chat = ChatAgent(OPENAI_API_KEY)
 
 st.title("AI Stock Chatbot")
 
+# Hiển thị ảnh trong sidebar nếu có
+image_folder = "chart"
+if os.path.exists(image_folder):
+    image_files = [f for f in os.listdir(image_folder) if f.endswith(
+        (".png", ".jpg", ".jpeg", ".gif"))]
+
+    if image_files:
+        st.sidebar.header("📊 Saved Charts")
+        for img_file in image_files:
+            img_path = os.path.join(image_folder, img_file)
+            st.sidebar.image(img_path, caption=img_file,
+                             use_container_width=True)
+
+# Khởi tạo session state cho tin nhắn
 if "messages" not in st.session_state:
     st.session_state.messages = []
 

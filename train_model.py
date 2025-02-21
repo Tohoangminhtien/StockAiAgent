@@ -106,7 +106,7 @@ def predict_stock(symbol: str):
     plt.legend(fontsize=10)
     plt.margins(x=0.02)
     plt.tight_layout()
-    plt.show()
+    plt.savefig(f"chart/{symbol}-{str(end)}.png", dpi=300)
 
     return f"{symbol} stock opening price tomorrow is {y_new[0, -1]} (RMSE = {rmse})"
 
