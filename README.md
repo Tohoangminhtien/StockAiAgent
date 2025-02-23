@@ -22,6 +22,12 @@ Agentic AI for Vietnam Stock is an advanced AI-powered application designed to a
 - *predict_tomorrow*: Predicts the stock price for the next trading day.
 - *fallback_tool*: Allows the agent to respond with "I don't know" for out-of-scope queries.
 
+## Example Step by Step
+### Example 1: Look up
+![example1](assets/look_up_agent.png)
+
+### Example 2: Predict
+![example2](assets/predict_agent.png)
 
 ## Installation
 1. Install dependencies
